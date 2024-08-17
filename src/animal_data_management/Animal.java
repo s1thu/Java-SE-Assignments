@@ -13,9 +13,10 @@ public class Animal {
     String name;
     int age;
     String species;
+    private static int count;
 
     public Animal() {
-
+count = count + 1;
     }
 
     public void inputData() throws IOException {
@@ -42,23 +43,29 @@ public class Animal {
         return false;
     }
 
-    private static void displayAnimalInfo(List<Animal> animals) {
-        System.out.println("Total number of animals:" + animals.size());
+    public static int getCount() {
+        return count;
+    }
+
+    private static void displayAnimalInfo(Animal[] animals) {
+        System.out.println("Total number of animals:" + getCount());
         System.out.println();
-        for (Animal animal : animals) {
-            animal.display();
-            System.out.println();
-        }
+        //loop though animals and display their information
+      for(int i = 0; i < getCount(); i++){
+          animals[i].display();
+          System.out.println();
+      }
     }
 
     public static void main(String[] args) throws IOException {
         String loopCondition = "";
         String[] validResponses = {"yes", "y"};
-        List<Animal> animals = new ArrayList<>();
+        Animal[] animals = new Animal[100];
+
         do {
             Animal animal = new Animal();
             animal.inputData();
-            animals.add(animal);
+            animals[animal.getCount() - 1] = animal;
             System.out.println("Do you want to enter another animal?(yes/no)");
             loopCondition = br.readLine();
         } while (isValidResponse(loopCondition.toLowerCase(), validResponses));
