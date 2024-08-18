@@ -15,7 +15,7 @@ public class MainApp {
         System.out.println("Enter details for a new book ====>");
         System.out.print("Title:");
         String title = br.readLine();
-        System.out.print("Sub Title:");
+        System.out.print("Sub Title(or press Enter to skip) :");
         String subTitle = br.readLine();
 
         if (subTitle.isEmpty()){
