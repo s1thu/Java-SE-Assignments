@@ -3,6 +3,7 @@ package com.assignment.vehiclesystem.model;
 public class Truck extends Vehicle{
 
     private String payloadCapacity;
+    static int total = 0;
 
     public Truck(String model, String brand, String capacity) {
         super(model, brand);
@@ -12,6 +13,7 @@ public class Truck extends Vehicle{
     public Truck(Vehicle vehicle, String capacity) {
         super(vehicle.getModel(), vehicle.getBrand());
         this.payloadCapacity = capacity;
+        total++;
     }
 
     @Override

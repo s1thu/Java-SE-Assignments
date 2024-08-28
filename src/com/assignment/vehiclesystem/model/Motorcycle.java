@@ -2,6 +2,7 @@ package com.assignment.vehiclesystem.model;
 
 public class Motorcycle extends Vehicle{
     private boolean hasSidecar;
+    static int total = 0;
 
     public Motorcycle(String model, String brand, boolean sidecar) {
         super(model, brand);
@@ -11,6 +12,7 @@ public class Motorcycle extends Vehicle{
     public Motorcycle(Vehicle vehicle, boolean sidecar) {
         super(vehicle.getModel(), vehicle.getBrand());
         this.hasSidecar = sidecar;
+        total++;
     }
 
     @Override
