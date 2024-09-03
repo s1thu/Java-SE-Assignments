@@ -11,14 +11,11 @@ public class TruckRegisterService extends VehicleRegisterService{
             super();
         }
 
-        @Override
-        public Vehicle registerInfo() throws IOException {
-            Vehicle vh =  commonInfo();
-            System.out.print("Enter Truck Capacity: ");
-            String truckCapacity = br.readLine();
-            Vehicle truck = new Truck(vh, truckCapacity);
-            vehicles[total] = truck;
-            total++;
-            return truck;
-        }
+    @Override
+    public void registerInfo() throws IOException {
+        System.out.print("Enter Payload Capacity: ");
+        String capacity = br.readLine();
+        Vehicle truck = new Truck(getVh(), capacity);
+        vehicles[vh.getTotal()] = truck;
+    }
 }

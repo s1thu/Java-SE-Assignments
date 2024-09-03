@@ -5,12 +5,12 @@ public class Motorcycle extends Vehicle{
     static int total = 0;
 
     public Motorcycle(String model, String brand, boolean sidecar) {
-        super(model, brand);
+        super(model, brand,true);
         this.hasSidecar = sidecar;
     }
 
     public Motorcycle(Vehicle vehicle, boolean sidecar) {
-        super(vehicle.getModel(), vehicle.getBrand());
+        super(vehicle.getModel(), vehicle.getBrand(),false);
         this.hasSidecar = sidecar;
         total++;
     }

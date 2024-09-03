@@ -12,13 +12,10 @@ public class CarRegisterService extends VehicleRegisterService {
     }
 
     @Override
-    public Vehicle registerInfo() throws IOException {
-        Vehicle vh =  commonInfo();
-        System.out.print("Enter Car Doors: ");
-        String carDoors = br.readLine();
-        Vehicle car = new  Car(vh, carDoors);
-        vehicles[total] = car;
-        total++;
-        return car;
+    public void registerInfo() throws IOException {
+        System.out.print("Enter Number of Doors: ");
+        String doors = br.readLine();
+        Vehicle car = new Car(getVh(), doors);
+        vehicles[vh.getTotal()] = car;
     }
 }

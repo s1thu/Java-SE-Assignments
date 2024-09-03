@@ -6,12 +6,12 @@ public class Truck extends Vehicle{
     static int total = 0;
 
     public Truck(String model, String brand, String capacity) {
-        super(model, brand);
+        super(model, brand,true);
         this.payloadCapacity = capacity;
     }
 
     public Truck(Vehicle vehicle, String capacity) {
-        super(vehicle.getModel(), vehicle.getBrand());
+        super(vehicle.getModel(), vehicle.getBrand(),false);
         this.payloadCapacity = capacity;
         total++;
     }
