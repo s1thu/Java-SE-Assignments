@@ -12,10 +12,10 @@ public class MotorcycleRegisterService extends VehicleRegisterService{
         }
 
     @Override
-    public void registerInfo() throws IOException {
+    public Vehicle registerInfo() throws IOException {
         System.out.print("Enter Sidecar (Yes/No): ");
         String sidecar = br.readLine();
         Vehicle motorcycle = new Motorcycle(getVh(), sidecar.equalsIgnoreCase("yes"));
-        vehicles[vh.getTotal()] = motorcycle;
+        return motorcycle;
     }
 }

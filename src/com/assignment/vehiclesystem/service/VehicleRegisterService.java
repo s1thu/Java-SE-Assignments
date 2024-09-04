@@ -1,5 +1,6 @@
 package com.assignment.vehiclesystem.service;
 
+import com.assignment.vehiclesystem.dao.VehicleDao;
 import com.assignment.vehiclesystem.model.Vehicle;
 
 import java.io.BufferedReader;
@@ -9,7 +10,13 @@ import java.io.InputStreamReader;
 public class VehicleRegisterService {
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     Vehicle vh;
-    static Vehicle[] vehicles = new Vehicle[100];
+    static Vehicle[] vehicles;
+
+    VehicleDao vehicleDao = new VehicleDao();
+
+    public VehicleRegisterService() {
+        vehicles = vehicleDao.getAllVehicles();
+    }
 
     public Vehicle getVh() {
         return vh;
@@ -29,10 +36,11 @@ public class VehicleRegisterService {
 
     public void create() throws IOException {
         commonInfo();
-        registerInfo();
+        vehicleDao.insertVehicle(registerInfo());
     }
 
-    public void registerInfo() throws IOException {
+    public Vehicle registerInfo() throws IOException {
+        return null;
     }
 
     public static void main(String[] args) throws IOException {

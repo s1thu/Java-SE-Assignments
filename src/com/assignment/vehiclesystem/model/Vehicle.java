@@ -4,13 +4,23 @@ public class Vehicle {
     public static final int MAX_VEHICLES = 100;
     private String model;
     private String brand;
+    private int id;
     private static int vehicleTotal = 0;
 
-    public Vehicle(String model, String brand,boolean increment) {
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public Vehicle(String model, String brand, boolean increment) {
         this.model = model;
         this.brand = brand;
         if (increment) {
             vehicleTotal++;
+            this.id = vehicleTotal;
         }
     }
 

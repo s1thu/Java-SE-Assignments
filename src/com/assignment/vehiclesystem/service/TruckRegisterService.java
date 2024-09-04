@@ -12,10 +12,10 @@ public class TruckRegisterService extends VehicleRegisterService{
         }
 
     @Override
-    public void registerInfo() throws IOException {
+    public Vehicle registerInfo() throws IOException {
         System.out.print("Enter Payload Capacity: ");
         String capacity = br.readLine();
         Vehicle truck = new Truck(getVh(), capacity);
-        vehicles[vh.getTotal()] = truck;
+        return truck;
     }
 }
