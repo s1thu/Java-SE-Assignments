@@ -19,7 +19,20 @@ public class Rental {
         this.rentalId = intTotalRental;
     }
 
-    public static int getIntTotalRental() {
+    public static int getTotalRental() {
         return intTotalRental;
     }
+
+    @Override
+    public String toString() {
+        return "Rental{" +
+                "rentalId=" + rentalId +
+                ", customer=" + customer +
+                ", vehicle=" + vehicle +
+                ", rentalDays=" + rentalDays +
+                ", totalPrice=" + totalPrice +
+                '}';
+    }
+
+
 }

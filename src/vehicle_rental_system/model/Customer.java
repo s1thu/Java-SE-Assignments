@@ -25,4 +25,8 @@ public class Customer {
                 ", address='" + address + '\'' +
                 '}';
     }
+
+    public int getId() {
+        return id;
+    }
 }

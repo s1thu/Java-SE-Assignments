@@ -6,6 +6,10 @@ public class RentalDao {
     private static Rental[] rentalDb = new Rental[100];
 
     public static void insertRental(Rental rental){
-        rentalDb[rental.getIntTotalRental() - 1] =rental;
+        rentalDb[rental.getTotalRental() - 1] =rental;
+    }
+
+    public static Rental[] getAllRentals(){
+        return rentalDb;
     }
 }

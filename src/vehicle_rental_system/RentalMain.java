@@ -1,6 +1,7 @@
 package vehicle_rental_system;
 
 import vehicle_rental_system.model.Customer;
+import vehicle_rental_system.model.Rental;
 import vehicle_rental_system.service.CustomerService;
 import vehicle_rental_system.service.RentalService;
 
@@ -26,8 +27,8 @@ public class RentalMain {
                     customerService.registerInfo();
                     break;
                 case 2:
-//                    RentalService rentalService = new RentalService();
-//                    rentalService.rentalInfo();
+                    RentalService rentalService = new RentalService();
+                    rentalService.createRental();
                     break;
                 default:
                     System.out.println("Invalid choice");
@@ -47,6 +48,16 @@ public class RentalMain {
             }
         }
 
+        RentalService rentalService = new RentalService();
+        for(Rental rental :rentalService.getAllRentals()){
+            if(rental != null){
+                System.out.println(rental);
+                rental.toString();
+                System.out.println();
+            }
+        }
+
         System.out.println("Total Customer :" + Customer.getCustomerCount());
+        System.out.println("Total Rental :" + Rental.getTotalRental());
     }
 }
