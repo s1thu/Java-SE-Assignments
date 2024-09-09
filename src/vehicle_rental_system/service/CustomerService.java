@@ -1,6 +1,6 @@
 package vehicle_rental_system.service;
 
-import vehicle_rental_system.dao.CustomerDao;
+import vehicle_rental_system.dao.CustomerDaoImpl;
 import vehicle_rental_system.model.Customer;
 
 import java.io.BufferedReader;
@@ -9,13 +9,13 @@ import java.io.InputStreamReader;
 
 public class CustomerService {
     public static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-
+    CustomerDaoImpl customerdaoimpl = new CustomerDaoImpl();
     private void registerCustomer(Customer customer){
-        CustomerDao.insertCustomer(customer);
+        customerdaoimpl.insertCustomer(customer);
     }
 
-    public Customer[] getAllCustomer(){
-        return CustomerDao.getAllCustomer();
+    public Customer[] getAllCustomer() {
+        return customerdaoimpl.getAllCustomers();
     }
 
     public void registerInfo() throws IOException {

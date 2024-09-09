@@ -1,6 +1,5 @@
 package vehicleregistrationsystem;
 
-import vehicleregistrationsystem.dao.VehicleDAO;
 import vehicleregistrationsystem.model.Vehicle;
 import vehicleregistrationsystem.service.CarRegisterService;
 import vehicleregistrationsystem.service.MotorcycleRegisterService;
@@ -9,7 +8,7 @@ import vehicleregistrationsystem.service.VehicleRegisterService;
 
 import java.io.IOException;
 
-public class main {
+public class Main {
 
     public static VehicleRegisterService vehicleRegisterService = new VehicleRegisterService();
     public static void chooseVehicleService() throws IOException {

@@ -1,35 +1,32 @@
 package vehicle_rental_system.service;
 
-import vehicle_rental_system.dao.CustomerDao;
-import vehicle_rental_system.dao.RentalDao;
+import vehicle_rental_system.dao.CustomerDaoImpl;
+import vehicle_rental_system.dao.RentalDaoImpl;
 import vehicle_rental_system.model.Customer;
 import vehicle_rental_system.model.Rental;
-import vehicleregistrationsystem.dao.VehicleDAO;
+import vehicleregistrationsystem.dao.VehicleDaoImpl;
 import vehicleregistrationsystem.model.Vehicle;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.nio.Buffer;
 
 public class RentalService {
 
     static BufferedReader  br = new BufferedReader(new InputStreamReader(System.in));
+    VehicleDaoImpl vehicleDao = new VehicleDaoImpl();
+    CustomerDaoImpl customerdaoimpl = new CustomerDaoImpl();
+    RentalDaoImpl rentaldaoimpl = new RentalDaoImpl();
 
     private void rentInfo(){
-        Vehicle[] vehicles = VehicleDAO.getAllVehicles();
-        for(Vehicle vehicle: VehicleDAO.getAllVehicles()){
+        for(Vehicle vehicle: vehicleDao.getAllVehicles()){
             if(vehicle != null) System.out.println(vehicle.toString());
         }
-
-        Customer[] customers = CustomerDao.getAllCustomer();
-
-        for(Customer customer: CustomerDao.getAllCustomer()){
+        for(Customer customer: customerdaoimpl.getAllCustomers()){
             if(customer != null)
                 System.out.println(customer.toString());
 
         }
-
     }
 
     private void userInput() throws IOException {
@@ -41,8 +38,8 @@ public class RentalService {
 
         System.out.print("Please Enter Number of Days :");
         int days = Integer.parseInt(br.readLine());
-        Rental Rental = new Rental(CustomerDao.getCustomerById(customerId), VehicleDAO.getVehicleById(vehicleId), days);
-        RentalDao.insertRental(Rental);
+        Rental Rental = new Rental(customerdaoimpl.getCustomerById(customerId), vehicleDao.getVehicleById(vehicleId), days);
+        rentaldaoimpl.insertRental(Rental);
     }
 
     public void createRental() throws IOException {
@@ -51,7 +48,7 @@ public class RentalService {
     }
 
     public Rental[] getAllRentals(){
-        return RentalDao.getAllRentals();
+        return rentaldaoimpl.getAllRentals();
     }
 
 }

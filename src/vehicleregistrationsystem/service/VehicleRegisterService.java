@@ -1,6 +1,5 @@
 package vehicleregistrationsystem.service;
-
-import vehicleregistrationsystem.dao.VehicleDAO;
+import vehicleregistrationsystem.dao.VehicleDaoImpl;
 import vehicleregistrationsystem.model.Vehicle;
 
 import java.io.BufferedReader;
@@ -12,7 +11,7 @@ public class VehicleRegisterService {
 
     public static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     private Vehicle vehicle;
-
+    VehicleDaoImpl VehicleDAO = new VehicleDaoImpl();
     public Vehicle getVehicle() {
         return vehicle;
     }
@@ -40,6 +39,8 @@ public class VehicleRegisterService {
         return VehicleDAO.getAllVehicles();
     }
 
-    public Vehicle registerInfo() throws IOException {return null;}
+    public Vehicle registerInfo() throws IOException{
+        return null;
+    };
 
 }
