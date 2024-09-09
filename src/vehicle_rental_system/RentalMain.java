@@ -56,7 +56,6 @@ public class RentalMain {
                 System.out.println();
             }
         }
-
         System.out.println("Total Customer :" + Customer.getCustomerCount());
         System.out.println("Total Rental :" + Rental.getTotalRental());
     }
