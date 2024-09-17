@@ -6,11 +6,12 @@ import vehicle_rental_system.model.Customer;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.sql.SQLException;
 
 public class CustomerService {
     public static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     CustomerDaoImpl customerdaoimpl = new CustomerDaoImpl();
-    private void registerCustomer(Customer customer){
+    private void registerCustomer(Customer customer) throws SQLException {
         customerdaoimpl.insertCustomer(customer);
     }
 
@@ -18,7 +19,7 @@ public class CustomerService {
         return customerdaoimpl.getAllCustomers();
     }
 
-    public void registerInfo() throws IOException {
+    public void registerInfo() throws IOException, SQLException {
         System.out.println("Please Enter Customer Name :");
         String name = br.readLine();
 
